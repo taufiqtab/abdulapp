@@ -8,35 +8,43 @@ import DetailUsers  from './component/DetailUsers';
 import Todo from './component/Todo';
 import M from "materialize-css/dist/js/materialize.min.js";
 import 'materialize-css/dist/css/materialize.min.css';
-
+import $ from 'jquery'; 
 function NoMatch(){
   return <h2>404, Jodoh Not Found</h2>
 }
 class App extends Component {
   componentDidMount() {
     var elem = document.querySelector(".sidenav");
+
     var instance = M.Sidenav.init(elem, {
         edge: "left",
         inDuration: 250
     });
+    window.$(".dropdown-trigger").dropdown();
   }
   render(){
     return (
       <BrowserRouter>
         <div>
-          <nav class="light-blue darken-1">
-            <div class="nav-wrapper">
-              <a href="#!" class="brand-logo">AbdulAPP</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-              <ul class="right hide-on-med-and-down">
+        <ul id="dropdown1" className="dropdown-content">
+          <li><Link to="/todo">Todo</Link></li>
+          {/* <li className="divider"></li> */}
+          <li><Link to="/">Calculator</Link></li>
+          <li><Link to="/">Maps</Link></li>
+        </ul>
+          <nav className="light-blue darken-1">
+            <div className="nav-wrapper">
+              <a href="#!" className="brand-logo">AbdulAPP</a>
+              <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+              <ul className="right hide-on-med-and-down">
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/users">User</Link></li>
-                  <li><Link to="/todo">Todo</Link></li>
+                  <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Apps<i className="material-icons right">arrow_drop_down</i></a></li>
               </ul>
             </div>
           </nav>
 
-          <ul class="sidenav" id="mobile-demo">
+          <ul className="sidenav" id="mobile-demo">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/users">User</Link></li>
             <li><Link to="/todo">Todo</Link></li>

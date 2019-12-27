@@ -28,8 +28,8 @@ class Todo extends Component {
     render(){
       return (
         <div className="App">
-          <div class="row">
-            <div class="col 12">
+          <div className="row">
+            <div className="col 12">
             <form onSubmit={this.handleSubmit}>
                 <input value={this.state.todoItem} onChange={this.handleChange}></input>
                 <button>Tambah</button>
