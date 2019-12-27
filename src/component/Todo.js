@@ -30,6 +30,7 @@ class Todo extends Component {
         <div className="App">
           <div className="row">
             <div className="col 12">
+              <h5>Masukan Task : </h5>
             <form onSubmit={this.handleSubmit}>
                 <input value={this.state.todoItem} onChange={this.handleChange}></input>
                 <button>Tambah</button>
