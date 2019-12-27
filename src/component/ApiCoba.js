@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class ApiCoba extends Component{
 
@@ -27,7 +28,8 @@ class ApiCoba extends Component{
             <div>
                 <ul>
                     {items.map((item, index) =>
-                        <li key={index}>{item.name}</li>
+                        <li key={index}><Link to={"users/" + item.name}>{item.name}</Link></li>
+                        
                     )}
                 </ul>
             </div>

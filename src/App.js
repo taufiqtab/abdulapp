@@ -1,87 +1,56 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import List from './List';
-import ApiCoba from './ApiCoba';
-
-
-function Home(){
-  return <h2>This Is HOMEEE</h2>
-}
-
-function ListView(){
-  return (
-    <div>
-      <h2>Semua User</h2>
-      <ul>
-        <li><Link to="users/opik">Opik</Link></li>
-        <li><Link to="users/umar">Umar</Link></li>
-      </ul>
-    </div>
-  )
-}
-
-function DetailView({match}){
-  return <h2>Hai {match.params.name}</h2>
-}
+import Home  from './component/Home';
+import Users  from './component/Users';
+import DetailUsers  from './component/DetailUsers';
+import Todo from './component/Todo';
+import M from "materialize-css/dist/js/materialize.min.js";
+import 'materialize-css/dist/css/materialize.min.css';
 
 function NoMatch(){
   return <h2>404, Jodoh Not Found</h2>
 }
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-      todoItem : '',
-      items : []
-    }
+  componentDidMount() {
+    var elem = document.querySelector(".sidenav");
+    var instance = M.Sidenav.init(elem, {
+        edge: "left",
+        inDuration: 250
+    });
   }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    this.setState({
-      items: [...this.state.items, this.state.todoItem],
-      todoItem:''
-    })
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      todoItem: event.target.value
-    })
-  }
-
   render(){
     return (
       <BrowserRouter>
         <div>
-          <nav>
+          <nav class="light-blue darken-1">
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo">AbdulAPP</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/users">User</Link></li>
+                  <li><Link to="/todo">Todo</Link></li>
+              </ul>
+            </div>
+          </nav>
+
+          <ul class="sidenav" id="mobile-demo">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/users">User</Link></li>
-          </nav>
+            <li><Link to="/todo">Todo</Link></li>
+          </ul>
 
           <main>
             <Switch>
               <Route path="/" exact component={Home}  />
-              <Route path="/users" exact component={ListView}  />
-              <Route path="/users/:name" exact component={DetailView}  />
+              <Route path="/users" exact component={Users}  />
+              <Route path="/todo" exact component={Todo}  />
+              <Route path="/users/:name" exact component={DetailUsers}  />
               <Route component={NoMatch} />
             </Switch>
           </main>
-        </div>
-
-        <div className="App">
-          <header className="App-header">
-            <form onSubmit={this.handleSubmit}>
-              <input value={this.state.todoItem} onChange={this.handleChange}></input>
-              <button>Tambah</button>
-            </form>
-
-            <List items={this.state.items} />
-          </header>
-
-          <ApiCoba />
         </div>
       </BrowserRouter>
     );
