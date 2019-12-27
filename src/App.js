@@ -32,7 +32,7 @@ class App extends Component {
           <li><Link to="/">Calculator</Link></li>
           <li><Link to="/">Maps</Link></li>
         </ul>
-          <nav className="light-blue darken-1">
+          <nav className="grey darken-3">
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo">AbdulAPP</a>
               <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
