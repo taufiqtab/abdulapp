@@ -46,14 +46,14 @@ class Home extends Component {
                 </div>
 
                 <div className="content">
-                    <h3 className="center-align">Create</h3>
-                    <h3 className="center-align">Develope</h3>
+                    <h1 className="center-align">Create</h1>
+                    <h2 className="center-align">Develope</h2>
                     <h3 className="center-align">Maintenance</h3>
-                    <h3 className="center-align">Fix</h3>
-                    <h3 className="center-align">Leave</h3>
+                    <h4 className="center-align">Fix</h4>
+                    <h5 className="center-align">Back to Start</h5>
                 </div>
                 <div className="parallax-container" style={{height: "200px"}}>
-                    <div className="parallax"><img className="responsive-img" src="http://cdn.miscellaneoushi.com/1920x1200/20121018/pixelart%20pixel%20art%201920x1200%20wallpaper_www.miscellaneoushi.com_59.jpg"/></div>
+                    <div className="parallax"><img className="responsive-img" src="https://images5.alphacoders.com/755/755427.png"/></div>
 
                     <div className="content">
                         <div className="row">
